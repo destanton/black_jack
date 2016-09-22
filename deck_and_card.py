@@ -33,22 +33,29 @@ class Deck:
 
     def shuffle_deck(self):
         shuffle(self.all_cards)
+        return self.all_cards
+
+    def deal_card(self):
+        pass
 
         # self.deal =  # need to deal 1 card at a time to dealer and player
 
         # for x in range(52)
         # card()
 
+
 user = Player("Danielle")
 dealer = Player("Dealer")
 deck = Deck()
 deck.shuffle_deck()
-# print(deck.all_cards)
-# card = Card(rank, suit)
+deck.show_card()
 print(user.name)
 print(dealer.name)
+# print(deck.all_cards)
+# card = Card(rank, suit)
+
 # print(card.rank, card.suit)
-print(deck.show_card())
+# print(deck.show_card())
 # print(deck.deck)
 
 # print(deck.deck)
