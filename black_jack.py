@@ -11,8 +11,12 @@ class Game:
 
     def hit_or_stand(self):
         choice = input("Do you want to [H]it or [S]tand? ").lower()
-        return choice
-
+        if choice == "h":
+            user_hand.add_card(deck.deal_card())
+            print(user_hand.get_value())
+        else:
+            print(user_hand.get_value())
+            # print(choice)
 
 user = Player("Danielle")
 dealer = Player("Dealer")
@@ -21,16 +25,20 @@ deck.shuffle_deck()
 user_hand = Hand(user)
 dealer_hand = Hand(dealer)
 # card = deck.deal_card()
-
+print("{}'s hand is".format("Your"))
 user_hand.add_card(deck.deal_card())
-dealer_hand.add_card(deck.deal_card())
 user_hand.add_card(deck.deal_card())
-dealer_hand.add_card(deck.deal_card())
-
-print(user_hand.get_value())
-print(dealer_hand.get_value())
 user_hand.show()
+print("\n")
+print("{}'s hand is".format("Dealer"))
+dealer_hand.add_card(deck.deal_card())
+dealer_hand.add_card(deck.deal_card())
 dealer_hand.show()
+print("\n")
+# print(user_hand.get_value())
+# print(dealer_hand.get_value())
+
+
 game = Game()
 game.hit_or_stand()
 
