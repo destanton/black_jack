@@ -1,21 +1,20 @@
-# turns []
-
-# while turns != 4:
-    # card is dealt to player
-        # turns += 1
-    # card is dealt to dealer
-        # turns += 1
-    # call win check function
+from deck_and_card import Hand, Card
 
 
-# win check function
-    # checks players hand for value of cards
-        # prints value of cards
-        # gives player option to hit or stay
-            #if hit then card + 1
-                #check total of cards
-    # checks dealers hand for value
-        #prints value of cards
-            # if value < 17
-                # hit for another card, check value
-                 
+class Player(Hand, Card):
+    def __init__(self, name):
+        self.name = name
+        self.hand = Hand(name)
+        # self.value = value
+        # self.hand = hand
+
+    def hit(self, deck):
+        self.hand.draw(deck)
+
+    def show_hand(self):
+        print("{}'s hand: {} {}".format(self.name, self.hand, self.value))
+
+
+class Dealer(Player):
+    def __init__(self, name):
+        self.name = "Dealer"

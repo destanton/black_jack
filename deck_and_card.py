@@ -2,15 +2,11 @@ from random import choice
 from random import shuffle
 
 
-class Player:
-    def __init__(self, name):
-        self.name = name
-
-
 class Hand:
 
-    def __init__(self):
+    def __init__(self, owner):
         self.player_hand = []
+        self.owner = owner
 
     def add_card(self, card):
         self.player_hand.append(card)
@@ -32,8 +28,6 @@ class Card:
         self.rank = rank
         self.suit = suit
         self.value = value
-        # jack, king, queen is a 10
-        # ace is 11
 
 
 class Deck:
@@ -67,21 +61,18 @@ class Deck:
         # card()
 
 
-user = Player("Danielle")
-dealer = Player("Dealer")
-hand = Hand()
-deck = Deck()
-deck.shuffle_deck()
+# user = Player("Danielle")
+# dealer = Player("Dealer")
+# user_hand = Hand()
+# dealer_hand = Hand()
+# deck = Deck()
+# deck.shuffle_deck()
 
 
 #deck.show_card()
-card = deck.deal_card()
-hand.add_card(card)
-card = deck.deal_card()
-hand.add_card(card)
-value = hand.get_value()
-hand.show()
-print(value)
+# card = deck.deal_card()
+
+# print()
 
 
 """
