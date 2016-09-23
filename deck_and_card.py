@@ -6,6 +6,11 @@ class Player:
     def __init__(self, name):
         self.name = name
 
+    def player_hand(self, self_deal):  # bring card into hand
+        self.player_hand = []
+        self.player_hand.append(self.all_cards)
+        return self.player_hand
+
 
 class Card:
 
@@ -15,7 +20,7 @@ class Card:
         # jack, king, queen is a 10
         # ace is 11
 
-
+        
 class Deck:
     def __init__(self):
         ranks = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
@@ -38,6 +43,9 @@ class Deck:
     def deal_card(self):
         pass
 
+    def self_deal(self):
+        self.all_cards.pop()
+        return self.all_cards
         # self.deal =  # need to deal 1 card at a time to dealer and player
 
         # for x in range(52)
@@ -49,8 +57,11 @@ dealer = Player("Dealer")
 deck = Deck()
 deck.shuffle_deck()
 deck.show_card()
+deck.self_deal()
+player = Player
 print(user.name)
 print(dealer.name)
+print(player.player_hand)
 # print(deck.all_cards)
 # card = Card(rank, suit)
 
