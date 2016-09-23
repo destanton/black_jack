@@ -16,28 +16,36 @@ class Hand:
         self.player_hand.append(card)
 
     def show(self):  # bring card into hand
-        for card in player_hand:
-            print(card)
+        for card in self.player_hand:
+            print(card.rank, card.suit, card.value)
+
+    def get_value(self):
+        card_total = 0
+        for card in self.player_hand:
+            card_total += card.value
+        return(card_total)
 
 
 class Card:
 
-    def __init__(self, rank, suit):
+    def __init__(self, rank, suit, value):
         self.rank = rank
         self.suit = suit
+        self.value = value
         # jack, king, queen is a 10
         # ace is 11
 
 
 class Deck:
     def __init__(self):
-        ranks = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
+        ranks = {"2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9, "10": 10, "J": 10,
+                 "Q": 10, "K": 10, "A": 11}
         suits = ["Diamonds", "Spades", "Clubs", "Hearts"]
         self.all_cards = []
 
-        for rank in ranks:
+        for rank, value in ranks.items():
             for suit in suits:
-                self.all_cards.append(Card(rank, suit))
+                self.all_cards.append(Card(rank, suit, value))
 
     def show_card(self):
 
@@ -61,19 +69,21 @@ class Deck:
 
 user = Player("Danielle")
 dealer = Player("Dealer")
-player_hand = Hand()
+hand = Hand()
 deck = Deck()
 deck.shuffle_deck()
 
+
 #deck.show_card()
 card = deck.deal_card()
-player_hand.add_card(card)
-
+hand.add_card(card)
 card = deck.deal_card()
-player_hand.add_card(card)
+hand.add_card(card)
+value = hand.get_value()
+hand.show()
+print(value)
 
-print(player_hand.player_hand)
-print(card)
+
 """
 player = Player
 hand = Hand()
