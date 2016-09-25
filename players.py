@@ -11,12 +11,7 @@ class Player(Hand, Card):
     def hit(self, deck):
         self.hand.draw(deck)
 
-    def show_hand(self):
-        print("{}'s hand: {} {}".format(self.name, self.hand, self.value))
-
 
 class Dealer(Player):
     def __init__(self, name):
         self.name = "Dealer"
-
-    # def    
