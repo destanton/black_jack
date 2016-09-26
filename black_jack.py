@@ -99,7 +99,7 @@ class Game:
     def replay(self):
         choice = input("Do you want to play again? [Y]es/n ").lower()
         if choice != "n":
-            Game()
+            game.replay()
         else:
             print("Bye!")
             sys.exit
@@ -131,4 +131,4 @@ game.hit_or_stand()
 game.player_turn()
 game.check_dealer()
 game.check_winner()
-game.replay = Game()
+game.replay()
