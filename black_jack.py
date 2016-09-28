@@ -12,7 +12,7 @@ class Game:
 
     def check_blackjack(self):
         if user_hand.get_value() == 21 or dealer_hand.get_value() == 21:
-            print("BLACKJACK PLAYER WINS!!!")
+            print("BLACKJACK!!! {} is player's score & {} is dealer's score".format(user_hand.get_value(), dealer_hand.get_value()))
             sys.exit()
         elif user_hand.get_value() > 21:
             print("You Busted! ¯\_(ツ)_/¯ ")
@@ -41,14 +41,14 @@ class Game:
 
     def check_dealer(self):
         while dealer_hand.get_value() < 21:
-            if dealer_hand.get_value() < user_hand.get_value():
+            if dealer_hand.get_value() < 17 or dealer_hand.get_value() < user_hand.get_value():
                 dealer_hand.add_card(deck.deal_card())
                 dealer_hand.show()
-                game.check_dealer()
+                game.check_winner()
             elif dealer_hand.get_value() == user_hand.get_value():
                 dealer_hand.add_card(deck.deal_card())
                 dealer_hand.show()
-                game.check_dealer()
+                game.check_winner()
             else:
                 game.check_winner()
 
