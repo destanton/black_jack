@@ -12,7 +12,7 @@ class Game:
 
     def check_blackjack(self):
         if user_hand.get_value() == 21 or dealer_hand.get_value() == 21:
-            print("BLACKJACK!!! {} is player's score & {} is dealer's score".format(user_hand.get_value(), dealer_hand.get_value()))
+            print("OH SNAP! BLACKJACK!!! {} is player's score & {} is dealer's score!".format(user_hand.get_value(), dealer_hand.get_value()))
             sys.exit()
         elif user_hand.get_value() > 21:
             print("You Busted! ¯\_(ツ)_/¯ ")
@@ -31,17 +31,18 @@ class Game:
             print("\nYour new total is {} \n".format(user_hand.get_value()))
             game.player_turn()
         else:
+            print("\nDealer's Turn!\n")
             game.check_dealer()
 
     def player_turn(self):
-        if user_hand.get_value() >= 21:
+        if user_hand.get_value() > 21:
             game.check_winner()
         elif user_hand.get_value() <= 17:
             game.hit_or_stand()
 
     def check_dealer(self):
         while dealer_hand.get_value() < 21:
-            if dealer_hand.get_value() < 17 or dealer_hand.get_value() < user_hand.get_value():
+            if dealer_hand.get_value() < 17: #or dealer_hand.get_value() < user_hand.get_value():
                 dealer_hand.add_card(deck.deal_card())
                 dealer_hand.show()
                 game.check_winner()
@@ -54,18 +55,18 @@ class Game:
 
     def check_winner(self):
         if dealer_hand.get_value() > 21:
-            print("You win! Dealer Busted!")
+            print("\nYOU WIN! DEALER BUSTED!")
             sys.exit()
         elif user_hand.get_value() > 21:
-            print ("You lose! You Busted! ¯\_(ツ)_/¯")
+            print ("\nYOU LOSE! YOU BUSTED! ¯\_(ツ)_/¯")
             sys.exit()
         elif user_hand.get_value() == dealer_hand.get_value():
-            game.check_dealer()
+            print("\nIT'S A TIE! DEALER WINS!")
         elif dealer_hand.get_value() > user_hand.get_value():
-            print("DEALER WINS!!!")
+            print("\nDEALER WINS!!!")
             sys.exit()
         elif user_hand.get_value() > dealer_hand.get_value():
-            print("You win!")
+            print("\nYOU WIN!")
             sys.exit()
 
     def replay(self):
