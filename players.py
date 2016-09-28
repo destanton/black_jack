@@ -11,10 +11,10 @@ class Player(Hand, Card):
     def hit(self, deck):
         self.hand.draw(deck)
 
-        if self.hand.get_value() == 21:
-            print("BLACKJACK")
+        # if self.hand.get_value() == 21:
+        #     print("BLACKJACK")
 
-            
+
 class Dealer(Player):
     def __init__(self, name):
         self.name = "Dealer"
@@ -22,5 +22,5 @@ class Dealer(Player):
     def hit(self, deck):
         self.hand.draw(deck)
 
-        if self.hand.get_value() == 21:
-            print("BLACKJACK")
+        # if self.hand.get_value() == 21:
+        #     print("BLACKJACK")
